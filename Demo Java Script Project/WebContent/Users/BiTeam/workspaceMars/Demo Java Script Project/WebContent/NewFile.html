@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./SELFHTML-Beispiel-Grundlayout.css">
+  <title>Document.createTextNode</title>
+
+</head>
+ 
+<body>
+<h1>Document.createTextNode</h1>
+
+<main>
+    <p>Bitte klicken Sie auf den Button, wenn Sie den Zeitpunkt des letzten Udates erfahren wollen!</p>
+    <p id="absatz"></p>
+    <button id="button">Logs!</button>
+
+<script>
+
+function Mensch(p1, p2){
+	this.p1 = p1;
+	this.p2 = p2;
+	this.greet = function(){
+
+		console.log("This 2" + this.p1 +  " is a Text" + this.p2 + ".");
+	}
+}
+
+var John = new Mensch("Jo", "Blue");
+John.greet();
+
+
+
+</script>
+
+</main>
+
+</body>
+
+<script>
+'use strict';  
+(function () {
+  function init() {
+	var button = document.getElementById('button');
+	button.addEventListener('click', erzeugeZeitStempel);
+  }
+  
+  function erzeugeZeitStempel() {
+
+	  
+	  var  textZuvor = document.createTextNode('Dat um des letzten Updates: '), 
+     zeitstempeltext = document.createTextNode(document.lastModified + ' ');
+    document.getElementById('absatz').appendChild(textZuvor);
+    document.getElementById('absatz').appendChild(zeitstempeltext);
+  }
+
+  document.addEventListener('DOMContentLoaded',init);
+  
+
+}());
+</script>
+
+</html>
